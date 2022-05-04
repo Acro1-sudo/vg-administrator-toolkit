@@ -32,8 +32,14 @@ window.onload = function() {
         else if (txtValue.includes('KICK')){
           tr[i].style.background = "orange";
         }
-        else if (txtValue.includes('BAN')){
-          tr[i].style.background = "#EC6969";
+        else if (txtValueUpper.includes('!TEMPBAN')){
+          tr[i].style.background = "#FF6666";
+        }
+        else if (txtValueUpper.includes('!BAN')){
+          tr[i].style.background = "#FF2222";
+        }
+        else if (txtValueUpper.includes('AMNESTY')){
+          tr[i].style.background = "#66FF66";
         }
       } 
     }
@@ -122,6 +128,44 @@ function filterLogTable() {
     }
 }
 
+function filterLogTable_precise() {
+  // Declare variables
+  var input, searchterm, filter, table, tr, td, i, txtValue,command_selector,command_filter;
+  input = document.getElementById("myInput");
+  searchterm = input.value.toUpperCase();
+  filter = " " + searchterm + "'"
+  table = document.getElementById("logTable");
+  tr = table.getElementsByTagName("tr");
+  
+  command_selector = document.getElementById("command_filter").value;
+  if (command_selector === "none") {
+    command_filter = "";//when searching this empty string within string, will always return true.
+  }
+  else{
+    command_filter = "!".concat(command_selector.toUpperCase()); //transform 'warn' into '!WARN' etc.
+  }
+  
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().includes(filter)) {
+        if (txtValue.includes(command_filter)) {
+          tr[i].style.display = "block";
+        }
+        else {
+          tr[i].style.display = "none";
+        }  
+      }
+      else {
+        tr[i].style.display = "none";
+      }  
+    }
+  }
+}
+
+
+
     function filterNamesTable() {
       // Declare variables
       var input, filter, table, tr, td, i, txtValue;
@@ -146,6 +190,29 @@ function filterLogTable() {
       }
     }
 
+    function filterNamesTable_precise() {
+      // Declare variables
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase() + ' ';
+      table = document.getElementById("namesTable");
+      tr = table.getElementsByTagName("tr");
+  
+  
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().includes(filter)) {
+                tr[i].style.display = "block";
+          }
+          else {
+                tr[i].style.display = "none";
+          }
+        }
+      }
+    }
 
 
     function setCounters() {
@@ -219,7 +286,7 @@ function filterLogTable() {
     function searchClickedName(name_and_date) {
       var name_only = name_and_date.split(" ")[0]; //splits username entry into list of name string and date string, [0] will select the name string.
       document.getElementById("myInput").value = name_only;
-      filterLogTable();
-      filterNamesTable();
+      filterLogTable_precise();
+      filterNamesTable_precise();
       setCounters();
     }

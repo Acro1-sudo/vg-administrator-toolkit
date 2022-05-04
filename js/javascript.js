@@ -20,16 +20,17 @@ window.onload = function() {
       td = tr[i].getElementsByTagName("td")[0];
       if (td) {
         txtValue = td.textContent || td.innerText;
+        txtValueUpper = txtValue.toUpperCase();
         if (txtValue.includes('!WARN')){
           tr[i].style.background = "#FCE698";
         }  
-        else if (txtValue.includes('KILL')){
+        else if (txtValueUpper.includes('KILL')){
           tr[i].style.background = "#FCE698";
         }
-        else if (txtValue.includes('RESIGN')){
+        else if (txtValueUpper.includes('RESIGN')){
             tr[i].style.background = "#FCE698";
         }
-        else if (txtValue.includes('KICK')){
+        else if (txtValueUpper.includes('KICK')){
           tr[i].style.background = "orange";
         }
         else if (txtValueUpper.includes('!TEMPBAN')){
@@ -38,7 +39,7 @@ window.onload = function() {
         else if (txtValueUpper.includes('!BAN')){
           tr[i].style.background = "#FF2222";
         }
-        else if (txtValueUpper.includes('AMNESTY')){
+        else if (txtValueUpper.includes('#AMNESTY')){
           tr[i].style.background = "#66FF66";
         }
       } 

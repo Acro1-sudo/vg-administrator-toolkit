@@ -2,8 +2,6 @@
 
 
 window.onload = function() {
-  
-  
 
   var password = 'gunpowder'
   var inputpassword = prompt('Please enter password:')
@@ -12,7 +10,7 @@ window.onload = function() {
 
     //color-code adminlog table
     document.getElementById("loading_overlay").style.display = "none";
-    var table, tr, td, i, txtValue;
+    var table, tr, td, i, txtValueUpper;
     table = document.getElementById("logTable");
     tr = table.getElementsByTagName("tr");
 
@@ -21,16 +19,16 @@ window.onload = function() {
       if (td) {
         txtValue = td.textContent || td.innerText;
         txtValueUpper = txtValue.toUpperCase();
-        if (txtValue.includes('!WARN')){
+        if (txtValueUpper.includes('!WARN')){
           tr[i].style.background = "#FCE698";
         }  
-        else if (txtValueUpper.includes('KILL')){
+        else if (txtValueUpper.includes('!KILL')){
           tr[i].style.background = "#FCE698";
         }
-        else if (txtValueUpper.includes('RESIGN')){
+        else if (txtValueUpper.includes('!RESIGN')){
             tr[i].style.background = "#FCE698";
         }
-        else if (txtValueUpper.includes('KICK')){
+        else if (txtValueUpper.includes('!KICK')){
           tr[i].style.background = "orange";
         }
         else if (txtValueUpper.includes('!TEMPBAN')){
@@ -39,7 +37,7 @@ window.onload = function() {
         else if (txtValueUpper.includes('!BAN')){
           tr[i].style.background = "#FF2222";
         }
-        else if (txtValueUpper.includes('#AMNESTY')){
+        else if (txtValueUpper.includes('AMNESTY')){
           tr[i].style.background = "#66FF66";
         }
       } 
@@ -129,6 +127,7 @@ function filterLogTable() {
     }
 }
 
+
 function filterLogTable_precise() {
   // Declare variables
   var input, searchterm, filter, table, tr, td, i, txtValue,command_selector,command_filter;
@@ -166,7 +165,6 @@ function filterLogTable_precise() {
 }
 
 
-
     function filterNamesTable() {
       // Declare variables
       var input, filter, table, tr, td, i, txtValue;
@@ -191,6 +189,7 @@ function filterLogTable_precise() {
       }
     }
 
+
     function filterNamesTable_precise() {
       // Declare variables
       var input, filter, table, tr, td, i, txtValue;
@@ -214,6 +213,10 @@ function filterLogTable_precise() {
         }
       }
     }
+
+
+
+
 
 
     function setCounters() {

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html>
+    
+<head>
+    <title>Admin Logs</title>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+    <meta name="googlebot" content="noindex">
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    
+
+</head>
+
+
+
+<body>
+  <script type="text/javascript" src="js/javascript.js"></script>
+  
+
+    <header>
+      
+      <section id=title>
+        <span>=VG= Administrator lookup tool</span>
+      </section>
+
+      <section id=inputs_container>
+        <form onsubmit="filterLogTable();filterNamesTable();setCounters();return false;"> <!--the 'return false' prevent page from reloading after submit-->
+          <input type="text" id="myInput" placeholder="Enter a playername...">
+          <label>Filter by:</label>
+          <select name="command_filter" id="command_filter">
+            <option value="none">-No Filter-</option>
+            <option value="warn">Warn</option>
+            <option value="resign">Resign</option>
+            <option value="kill">Kill</option>
+            <option value="kick">Kick</option>
+            <option value="tempban">Temp ban</option>
+            <option value="ban">Ban</option>
+          </select>
+        </form>
+        <div id=headerspacer></div>
+        <button id=myButton class=button type=button onclick="filterFunction();">Search</button>
+        <div id=headerspacer></div>
+        <button id=clearButton class=button type=button onclick="clearInputs()">Clear</button>
+        <div id=headerspacer></div>
+        <button id=tutorialButton class=button type=button onclick="showHideTutorial()">Help</button>
+      </section>
+     
+    </header>
+
+    <div id="loading_overlay">
+      <span>Please wait, elements are loading...</span>
+      <div id="loading_widget"></div>
+      <!-- <div id=loading_overlay_indicators>
+        <span>Calculation widgets...</span>
+        <div class=loading_overlay_spacer></div>
+        <span>importing admin logs...</span>
+        <div class=loading_overlay_spacer></div>
+        <span>importing username data...</span>
+      </div> -->
+    </div>
+
+    <div id="tutorial">
+      <div id="tutorial_title"></div>
+      <div id="tutorial_content">
+        <ul>
+          <li>To begin, type a name in the search bar and press Enter or click the 'Search' button. Searches are not case-sensitive.</li>
+          <li>The left table shows admin command logs. The right table shows all playernames with their first login date (starting May 1st 2020, PR 1.6 release).</li>
+          <li>The left table shows all logs containing your input string, in chronological order. This means you can search your own name too,<br>
+              in case you want to see your recent actions.</li>
+          <li>The right-hand table will show all usernames that contain your search string, <strong>together with their alternate usernames.</strong> <br>
+              Usernames grouped together between grey lines are on the same hashkey.
+              (Search for 'papa' to see a clear example.)</li>
+          <li>Click any name to show you that name's logs. Only the clicked player and accounts on that same hashkey will be shown<br>
+              until you do a new search.</li>
+          <li>You can leave the username field blank and search by command (warn, kick,...) only, but this is <b>heavy on RAM usage!</b><br>
+              It will render at least 30.000 table rows. If you have a potato computer, this is not advisable.<br>
+            For this reason, searching with empty name field and empty filter will simply clear the page.</li>
+          <li>For more info or questions, please contact me through DM or by <a href="mailto:acromartsu@gmail.com">e-mail</a></li>
+        </ul>
+        <span>Cheers! <br>=VG= Acro1</span>
+        <br>
+        <button class=button type=button onclick="showHideTutorial()">Hide</button>
+
+      </div>
+
+    </div>
+
+    <section id=counter_container>
+      <table id=counters class=countertable>
+        <tr class=counter_titles>
+          <td class="counter_title_cell">Warnings</td>
+          <td class="counter_title_cell">Resigns</td>
+          <td class="counter_title_cell">Kills</td>
+          <td class="counter_title_cell">Kicks</td>
+          <td class="counter_title_cell">Bans</td>
+        </tr>
+        <tr class=counter_values>
+          <td id=counter_warnings class="counter_value_cell">0</td>
+          <td id=counter_resigns class="counter_value_cell">0</td>
+          <td id=counter_kills class="counter_value_cell">0</td>
+          <td id=counter_kicks class="counter_value_cell">0</td>
+          <td id=counter_bans class="counter_value_cell">0</td>
+        </tr>
+      </table>
+    </section>
+
+
+    <section id=tables_container>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!-- LINE 150, END OF FIRST PART -->
+
+      <!-- <table id='logTable'> -->
+
+
+
+
+
+
+
+      
+      
+      
+      
+      
+      <!-- </table> -->
+      </section>
+
+  </body>
+</html>

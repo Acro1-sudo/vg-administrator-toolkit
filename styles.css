@@ -1,0 +1,208 @@
+
+/********HEADER********/
+
+header {
+    background-color: #bbbbbb;
+}
+
+
+        /*********TUTORIAL*********/
+#tutorial {
+    padding-top:50px;
+    display:none;
+    background:#ffeb79;
+    color:black;
+    font-size:16px;
+    font-family:Verdana;
+    line-height:25px;
+}
+
+#tutorial ul li{
+    padding:10px 10px;
+}
+
+        /*********TITLE AND INPUTS***************/
+#title{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:Verdana;
+    font-size:30px;
+    background-color:darkgrey;
+    height:100px;
+}
+
+
+#inputs_container{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:70px;
+    padding-left: 50px;
+}
+
+.button{
+    width:100px;
+    height:40px;
+}
+
+#headerspacer{
+    width:30px;
+}
+
+#myInput{
+    width:200px;
+    height:30px;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+/********COUNTER TABLES*************/
+#counter_container{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding: 20px 20px;
+}
+
+.countertable td{
+    width:200px;
+    height:50px;
+    text-align:center;
+}
+
+
+.counter_value_cell {
+    font-family:'Calibri';
+    background-color: #00ba00;
+    font-size:25px;
+}
+
+.counter_title_cell{
+    background-color:#009900;
+    font-size: 25px;
+    font-weight:bold;
+}
+
+
+/****************LOG AND NAMES TABLES****************/
+
+#tables_container{ /*div containing both 'logs' and 'names' tables*/
+    display:flex;
+    justify-content:center;
+    padding-left:10px;
+    padding-right:10px;
+    width:100%;
+}
+
+#logTable {
+    border-collapse:collapse;
+    border: 1px solid darkgrey;
+    background-color: #f0f0f0;
+    table-layout: fixed;
+    width:60%;
+    font-size:20px;
+    /* line-height:50px; */
+    
+}
+
+#vg-admintools-lastupdate{
+    font-size: 20px;
+    font-family: 'Calibri';
+    color:#2c2c2c
+}
+
+.logs_row{
+    display:none;
+}
+
+#namesTable {
+    margin-left: 40px;  /*separates it from logtable*/
+    border-collapse:collapse;
+    border: 1px solid darkgrey;
+    background-color: #f0f0f0;
+    width:25%;
+    font-size:20px;
+    line-height:25px;
+}
+
+
+
+.names_row{
+    display:none;
+    border:1px solid darkgrey;
+    cursor:pointer;
+}
+
+
+.names_row td span:hover{
+    font-weight:bold;
+    color:blue;
+}
+
+
+
+th {
+    font-family:Verdana;
+    font-size:25px;
+    height:100px;
+    background-color:lightgrey;
+}
+
+td {
+    font-family: 'Calibri';
+}
+
+/*******************LOADING OVERLAY****************/
+
+#loading_overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size:60px;
+    font-family:Verdana;
+    color:#efefef;
+    position: absolute; /* Sit on top of the page content */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.7); /* Black background with opacity */
+    /* z-index: 10; Specify a stack order in case you're using a different order for other elements */
+    /* cursor: pointer; Add a pointer on hover */
+}
+
+.loading_overlay_spacer{
+    width:50px;
+}
+
+
+#loading_overlay_indicators{
+    display:flex;
+    font-size:30px;
+    font-family:Verdana;
+    color:#efefef;
+}
+/* LOADING WIDGET */
+
+#loading_widget {
+    margin-top:100px;
+    width: 100px;
+    height: 100px;
+    border: 10px solid rgba(255,255,255,.3);
+    border-radius: 100%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+    -webkit-animation: spin 1s ease-in-out infinite;
+  }
+  
+  @keyframes spin {
+    to { -webkit-transform: rotate(720deg); }
+  }
+  @-webkit-keyframes spin {
+    to { -webkit-transform: rotate(720deg); }
+  }
